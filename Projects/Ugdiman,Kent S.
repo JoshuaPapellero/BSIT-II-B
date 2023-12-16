@@ -1,0 +1,158 @@
+using System;
+
+public class PetshopKent
+{
+    public static int order, allprod = 0, amount, menu1, menu2, menu3;
+
+    public static readonly int Gs_p = 700, Gr_p = 700, L_p = 800,
+        Rd_p = 300, Esh_p = 450, Dr_p = 200, lb_p = 200,
+        c_p = 100, p_p = 150;
+
+    // Add parameters to the Main method
+    public static void Main(string[] args)
+    {
+        do
+        {
+            Console.WriteLine("--------------------");
+            Console.WriteLine("*----PetshopKent---*");
+            Console.WriteLine("|   1.Dog          |");
+            Console.WriteLine("|   2.Cat          |");
+            Console.WriteLine("|   3.Bird         |");
+            Console.WriteLine("|   4.Exit         |");
+            Console.WriteLine("--------------------");
+
+            Console.Write("Please Select: ");
+            order = int.Parse(Console.ReadLine());
+
+            // Add if statements for comparison
+            if (order == 1)
+            {
+                Menu1();
+            }
+            else if (order == 2)
+            {
+                Menu2();
+            }
+            else if (order == 3)
+            {
+                Menu3();
+            }
+            else
+            {
+                Console.WriteLine("Thank You come again!\n");
+            }
+
+            Console.WriteLine($"Amount payable: {allprod}\n");
+
+        } while (order != 4);
+    }
+
+    public static void Menu1()
+    {
+        Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        Console.WriteLine("  1.GermanShepherd   $900\n ");
+        Console.WriteLine("  2.GolderRetriever  $700\n ");
+        Console.WriteLine("  3.Labrador         $800 ");
+        Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        Console.Write("Please Select: ");
+        menu1 = int.Parse(Console.ReadLine());
+
+        // Add logical operators to handle the quantity input
+        if (menu1 >= 1 && menu1 <= 3)
+        {
+            Console.Write("Quantity: ");
+            amount = int.Parse(Console.ReadLine());
+
+            // Use ternary operator to display the ordered item
+            Console.WriteLine($"You ordered {amount} {(menu1 == 1 ? "GermanShepherd" : menu1 == 2 ? "GoldenRetriever" : "Labrador")}\n");
+
+            // Use switch statement for calculating the total
+            switch (menu1)
+            {
+                case 1:
+                    allprod += Gs_p * amount;
+                    break;
+                case 2:
+                    allprod += Gr_p * amount;
+                    break;
+                case 3:
+                    allprod += L_p * amount;
+                    break;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Invalid");
+        }
+    }
+
+    public static void Menu2()
+    {
+        Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        Console.WriteLine("  1.Ragdoll         $300\n ");
+        Console.WriteLine("  2.ExoticShorthair $450\n  ");
+        Console.WriteLine("  3.DevonRex        $200  ");
+        Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        Console.Write("Please Select: ");
+        menu2 = int.Parse(Console.ReadLine());
+
+        if (menu2 >= 1 && menu2 <= 3)
+        {
+            Console.Write("Quantity: ");
+            amount = int.Parse(Console.ReadLine());
+            Console.WriteLine($"You ordered {amount} {(menu2 == 1 ? "Ragdoll" : menu2 == 2 ? "ExoticShorthair" : "DevonRex")}\n");
+
+            switch (menu2)
+            {
+                case 1:
+                    allprod += Rd_p * amount;
+                    break;
+                case 2:
+                    allprod += Esh_p * amount;
+                    break;
+                case 3:
+                    allprod += Dr_p * amount;
+                    break;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Invalid");
+        }
+    }
+
+    public static void Menu3()
+    {
+        Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^");
+        Console.WriteLine("  1. Lovebirds $200\n  ");
+        Console.WriteLine("  2. Conures   $100\n  ");
+        Console.WriteLine("  3. Parrot    $150  ");
+        Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^");
+        Console.Write("Please Select: "); // Changed "Watch" to "Tshirt"
+        menu3 = int.Parse(Console.ReadLine());
+
+        if (menu3 >= 1 && menu3 <= 3)
+        {
+            Console.Write("Quantity: ");
+            amount = int.Parse(Console.ReadLine());
+            Console.WriteLine($"You ordered {amount} {(menu3 == 1 ? "Lovebirds" : menu3 == 2 ? "Conures" : "Parrot")}\n");
+
+            switch (menu3)
+            {
+                case 1:
+                    allprod += lb_p * amount;
+                    break;
+                case 2:
+                    allprod += c_p * amount;
+                    break;
+                case 3:
+                    allprod += p_p* amount;
+                    break;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Invalid");
+        }
+    }
+}
