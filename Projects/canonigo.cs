@@ -201,7 +201,7 @@ class CanonigoResto
             case 5:
                 return "Coke";
             case 6:
-                return "Coke";
+                return "Sprite";
             case 7:
                 return "Royal";
             case 8:
